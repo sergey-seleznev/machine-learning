@@ -7,30 +7,11 @@ function [mu sigma2] = estimateGaussian(X)
 %   and the variances sigma^2, an n x 1 vector
 % 
 
-% Useful variables
-[m, n] = size(X);
+m = size(X, 1);
 
-% You should return these values correctly
-mu = zeros(n, 1);
-sigma2 = zeros(n, 1);
+mu = 1 / m * sum(X, 1);
 
-% ====================== YOUR CODE HERE ======================
-% Instructions: Compute the mean of the data and the variances
-%               In particular, mu(i) should contain the mean of
-%               the data for the i-th feature and sigma2(i)
-%               should contain variance of the i-th feature.
-%
-
-
-
-
-
-
-
-
-
-
-% =============================================================
-
+mus = ones(m, 1) * mu;
+sigma2 = 1 / m * sum((X - mus) .^ 2, 1);
 
 end
